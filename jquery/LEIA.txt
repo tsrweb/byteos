@@ -1,0 +1,6 @@
+O Jquery já está com o plugin de mascaras para campo.
+
+saiba mais em:
+
+http://digitalbush.com/projects/masked-input-plugin/
+http://vinteum.com/jquery-mask-mascaras-para-campos-html-utilizando-jquery/
