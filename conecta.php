@@ -1,7 +1,7 @@
 <?php
 $host       = 'localhost';
 $user       = 'root';
-$password   = '';
+$password   = 'pa8LFn5$t$8Bu7';
 $db         = 'db_byteos';
 
 $link = new Mysqli($host, $user, $password, $db);

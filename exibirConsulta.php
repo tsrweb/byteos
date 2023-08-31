@@ -62,7 +62,7 @@ else{ ?>
 <html lang="pt-br">
 
 	<head>
-		<meta charset="utf-8" />
+		<meta charset="utf-8">
 		<title>Colsultar Ticket</title>
 		<link href="css/estilos.css" rel="stylesheet" />
 		<script type="text/javascript" src="js/javascript.js"></script>

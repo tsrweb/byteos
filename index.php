@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html lang="pt-br" >
 	<head>
-		<meta charset="utf-8" />
+		<meta charset="utf-8">
 		<title>Login</title>
 		<link href="css/estilosLogin.css" rel="stylesheet" />
 		<script type="text/javascript" src="js/javascript.js"></script>

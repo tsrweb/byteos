@@ -15,7 +15,7 @@
 
 include "conecta.php";
 
-	$con = "SELECT * FROM tb_empresa";
+	$con = "SELECT * FROM tb_empresa ORDER BY id_empresa ASC";
 	$res = $link->query($con);
 
  ?>
@@ -23,7 +23,7 @@ include "conecta.php";
 <!DOCTYPE html>
 <html lang="pt-br">
 	<head>
-		<meta charset="utf-8"/>
+		<meta charset="utf-8">
 		<title>Empresas Cadastradas</title>
 		<link href="css/estilos.css" rel="stylesheet" />
 		<script type="text/javascript" src="js/javascript.js"></script>

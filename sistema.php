@@ -55,7 +55,7 @@ $soma = $reg1 + $reg2;
 <!DOCTYPE html>
 <html lang="pt-br">
 	<head>
-		<meta charset="utf-8" />
+		<meta charset="utf-8">
 		<title>Sistema</title>
 		<link href="css/estilos.css" rel="stylesheet" />
 		<script type="text/javascript" src="js/javascript.js"></script>
