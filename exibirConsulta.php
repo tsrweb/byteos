@@ -26,9 +26,11 @@ include "conecta.php";
 		$idEmpresa = $reg1['id_empresa'];
 	}
 
-	$con2 = "SELECT * FROM tb_ticket WHERE id_ticket='$idTicket'";
-	
-	$res2 = $link->query($con2);
+	$con2 = "SELECT * FROM tb_ticket WHERE id_ticket=?";
+	$stmt=$link->prepare($con2);
+	$stmt->bind_param('s',$idTicket);
+	$stmt->execute();
+	$res2=$stmt->get_result();
 
 	if ($res2->num_rows == 0) {	
 	

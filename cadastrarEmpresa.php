@@ -39,23 +39,12 @@ include "conecta.php";
 		nm_contato,
 		nm_usuario,
 		pw_senha)
-		VALUES (
-		'$empresa',
-		'$cnpj',
-		'$logradouro',
-		'$logNumero',
-		'$bairro',
-		'$cidade',
-		'$uf',
-		'$cep',
-		'$telefone',
-		'$email',
-		'$contato',
-		'$usuario',
-		'$senha')";
-	$res = $link->query($sql);
+		VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
 	
-$link->close();
+	$stmt = $link->prepare($sql);
+	$stmt->bind_param('sssssssssssss',$empresa,$cnpj,$logradouro,$logNumero,$bairro,$cidade,$uf,$cep,$telefone,$email,$contato,$usuario,$senha);
+	$stmt->execute();	
+	$link->close();
 ?>
 
 <!DOCTYPE html>

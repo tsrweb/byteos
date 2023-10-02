@@ -25,22 +25,23 @@ $senha = $_POST['senha'];
 include "conecta.php";
 		
 	$sql = "UPDATE tb_empresa SET
-	te_logradouro = '$logradouro',
-	nu_logNumero = '$logNumero',
-	nm_bairro = '$bairro',
-	nm_cidade = '$cidade',
-	sl_uf = '$uf',
-	nu_cep = '$cep',
-	fn_empresa = '$telefone',
-	te_email = '$email',
-	nm_contato = '$contato',
-	nm_usuario = '$usuario',
-	pw_senha = '$senha'
-	WHERE id_empresa = '$idEmpresa'";
+	te_logradouro = ?,
+	nu_logNumero = ?,
+	nm_bairro = ?,
+	nm_cidade = ?,
+	sl_uf = ?,
+	nu_cep = ?,
+	fn_empresa = ?,
+	te_email = ?,
+	nm_contato = ?,
+	nm_usuario = ?,
+	pw_senha = ?
+	WHERE id_empresa = ?";
 
-	$res = $link->query($sql);
-	
-$link->close();
+	$stmt = $link->prepare($sql);
+	$stmt->bind_param('sssssssssssi',$logradouro,$logNumero,$bairro,$cidade,$uf,$cep,$telefone,$email,$contato,$usuario,$senha,$idEmpresa);
+	$stmt->execute();	
+	$link->close();
 ?>
 
 <!DOCTYPE html>

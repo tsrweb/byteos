@@ -12,11 +12,12 @@ $idTicket = $_GET['idTicket'];
 
 include "conecta.php";
 	
-	$con = "SELECT * FROM tb_ticket WHERE id_ticket = '$idTicket'";
+	$con = "SELECT * FROM tb_ticket WHERE id_ticket = ?";
+	$stmt=$link->prepare($con);
+	$stmt->bind_param('s',$idTicket);
+	$stmt->execute();
+	$res=$stmt->get_result();
 	
-	$res = $link->query($con);
-
-
 		while($reg = $res->fetch_array()){
 	
 			$id = $reg['id_ticket'];

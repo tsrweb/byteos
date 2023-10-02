@@ -25,10 +25,13 @@ include "conecta.php";
 	
 include 'dataHora.php';
 
-	$con = "SELECT * FROM tb_empresa WHERE nm_empresa = '$logado'";
-	$ret = $link->query($con);
+	$sql = "SELECT * FROM tb_empresa WHERE nm_empresa = ?";
+	$stmt=$link->prepare($sql);
+	$stmt->bind_param('s',$logado);
+	$stmt->execute();
+	$res=$stmt->get_result();
 
-	while($reg = $ret->fetch_array()){
+	while($reg = $res->fetch_array()){
 		$idEmpresa = $reg['id_empresa'];
 		$emailLogado = $reg['te_email'];
 	}
@@ -45,24 +48,14 @@ include 'dataHora.php';
 		dt_dataAberto,
 		hr_horaAberto,
 		te_situacao)
-		VALUES (
-		'$idEmpresa',
-		'$equipamento',
-		'$marcaModelo',
-		'$codEquip',
-		'$defeitoRelatado',
-		'$solicitante',
-		'$setor',
-		'$fnSolicitante',
-		'$data',
-		'$hora',
-		'$situacao')";
-
-	$res = $link->query($sql);
+		VALUES (?,?,?,?,?,?,?,?,?,?,?)";
 	
-	$ultimo = $link->insert_id;
+	$stmt=$link->prepare($sql);
+	$stmt->bind_param('issssssssss',$idEmpresa,$equipamento,$marcaModelo,$codEquip,$defeitoRelatado,$solicitante,$setor,$fnSolicitante,$data,$hora,$situacao);
+	$stmt->execute();
 	
-$link->close();
+	$ultimo = $link->insert_id;	
+	$link->close();
 ?>
 
 <!DOCTYPE html>
